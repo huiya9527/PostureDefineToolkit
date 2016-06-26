@@ -1,0 +1,201 @@
+﻿<Window x:Class="PostureDefinationToolkit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PostureDefinationToolkit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="674.415" Width="510">
+    <Grid>
+        <Canvas x:Name="Layout" Background="#FFC5EFCE" Margin="0,5,2,1">
+            <Line x:Name="HipCenter_Spine" 
+              X1="{Binding HipCenterX}" 
+              Y1="{Binding HipCenterY}" 
+              X2="{Binding SpineX}"
+              Y2="{Binding SpineY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="Spine_ShoulderCenter" 
+              X1="{Binding X2, ElementName=HipCenter_Spine, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=HipCenter_Spine, Mode=TwoWay}" 
+              X2="{Binding ShoulderCenterX}"
+              Y2="{Binding ShoulderCenterY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ShoulderCenter_Head" 
+              X1="{Binding X2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+              X2="{Binding HeadX}"
+              Y2="{Binding HeadY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ShoulderCenter_ShoulderLeft" 
+              X1="{Binding X2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+              X2="{Binding ShoulderLeftX}"
+              Y2="{Binding ShoulderLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ShoulderCenter_ShoulderRight" 
+              X1="{Binding X2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+              X2="{Binding ShoulderRightX}"
+              Y2="{Binding ShoulderRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ShoulderLeft_ElbowLeft" 
+              X1="{Binding X2, ElementName=ShoulderCenter_ShoulderLeft, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=ShoulderCenter_ShoulderLeft, Mode=TwoWay}" 
+              X2="{Binding ElbowLeftX}"
+              Y2="{Binding ElbowLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ShoulderRight_ElbowRight" 
+              X1="{Binding X2, ElementName=ShoulderCenter_ShoulderRight, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=ShoulderCenter_ShoulderRight, Mode=TwoWay}" 
+              X2="{Binding ElbowRightX}"
+              Y2="{Binding ElbowRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ElbowLeft_WristLeft" 
+              X1="{Binding X2, ElementName=ShoulderLeft_ElbowLeft, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=ShoulderLeft_ElbowLeft, Mode=TwoWay}" 
+              X2="{Binding WristLeftX}"
+              Y2="{Binding WristLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="ElbowRight_WristRight" 
+              X1="{Binding X2, ElementName=ShoulderRight_ElbowRight, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=ShoulderRight_ElbowRight, Mode=TwoWay}" 
+              X2="{Binding WristRightX}"
+              Y2="{Binding WristRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            
+            <Line x:Name="HipCenter_HipLeft" 
+              X1="{Binding HipCenterX}" 
+              Y1="{Binding HipCenterY}" 
+              X2="{Binding HipLeftX}"
+              Y2="{Binding HipLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="HipCenter_HipRight" 
+              X1="{Binding HipCenterX}" 
+              Y1="{Binding HipCenterY}" 
+              X2="{Binding HipRightX}"
+              Y2="{Binding HipRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="HipLeft_KneeLeft" 
+              X1="{Binding X2, ElementName=HipCenter_HipLeft, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=HipCenter_HipLeft, Mode=TwoWay}" 
+              X2="{Binding KneeLeftX}"
+              Y2="{Binding KneeLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="HipRight_KneeRight" 
+              X1="{Binding X2, ElementName=HipCenter_HipRight, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=HipCenter_HipRight, Mode=TwoWay}" 
+              X2="{Binding KneeRightX}"
+              Y2="{Binding KneeRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="KneeLeft_AngleLeft" 
+              X1="{Binding X2, ElementName=HipLeft_KneeLeft, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=HipLeft_KneeLeft, Mode=TwoWay}" 
+              X2="{Binding AngleLeftX}"
+              Y2="{Binding AngleLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="KneeRight_AngleRight" 
+              X1="{Binding X2, ElementName=HipRight_KneeRight, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=HipRight_KneeRight, Mode=TwoWay}" 
+              X2="{Binding AngleRightX}"
+              Y2="{Binding AngleRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="AngleLeft_FootLeft" 
+              X1="{Binding X2, ElementName=KneeLeft_AngleLeft, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=KneeLeft_AngleLeft, Mode=TwoWay}" 
+              X2="{Binding FootLeftX}"
+              Y2="{Binding FootLeftY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+            <Line x:Name="AngleRight_FootRight" 
+              X1="{Binding X2, ElementName=KneeRight_AngleRight, Mode=TwoWay}" 
+              Y1="{Binding Y2, ElementName=KneeRight_AngleRight, Mode=TwoWay}" 
+              X2="{Binding FootRightX}"
+              Y2="{Binding FootRightY}" 
+              Stroke="Black" StrokeThickness="2" d:IsLocked="True"/>
+
+
+
+            <Ellipse x:Name ="Head" 
+                 Canvas.Left="{Binding X2, ElementName=ShoulderCenter_Head, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ShoulderCenter_Head, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8" Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="ShoulderCenter" 
+                 Canvas.Left="{Binding X2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=Spine_ShoulderCenter, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="Spine" 
+                 Canvas.Left="{Binding X2, ElementName=HipCenter_Spine, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=HipCenter_Spine, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="HipCenter" 
+                 Canvas.Left="{Binding HipCenterX}" 
+                 Canvas.Top="{Binding HipCenterY}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+
+
+            <Ellipse x:Name ="ShoulderLeft" 
+                 Canvas.Left="{Binding X2, ElementName=ShoulderCenter_ShoulderLeft, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ShoulderCenter_ShoulderLeft, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="ElbowLeft" 
+                 Canvas.Left="{Binding X2, ElementName=ShoulderLeft_ElbowLeft, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ShoulderLeft_ElbowLeft, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="WristLeft" 
+                 Canvas.Left="{Binding X2, ElementName=ElbowLeft_WristLeft, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ElbowLeft_WristLeft, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+           
+            <Ellipse x:Name ="KneeLeft" 
+                 Canvas.Left="{Binding X2, ElementName=HipLeft_KneeLeft, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=HipLeft_KneeLeft, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="AngleLeft" 
+                 Canvas.Left="{Binding X2, ElementName=KneeLeft_AngleLeft, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=KneeLeft_AngleLeft, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="FootLeft" 
+                 Canvas.Left="{Binding X2, ElementName=AngleLeft_FootLeft, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=AngleLeft_FootLeft, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+
+            <Ellipse x:Name ="ShoulderRight" 
+                 Canvas.Left="{Binding X2, ElementName=ShoulderCenter_ShoulderRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ShoulderCenter_ShoulderRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="ElbowRight" 
+                 Canvas.Left="{Binding X2, ElementName=ShoulderRight_ElbowRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ShoulderRight_ElbowRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="WristRight" 
+                 Canvas.Left="{Binding X2, ElementName=ElbowRight_WristRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=ElbowRight_WristRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="HandRight" 
+                 Canvas.Left="{Binding X2, ElementName=WristRight_HandRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=WristRight_HandRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="HipRight" 
+                 Canvas.Left="{Binding X2, ElementName=HipCenter_HipRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=HipCenter_HipRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="KneeRight" 
+                 Canvas.Left="{Binding X2, ElementName=HipRight_KneeRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=HipRight_KneeRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="AngleRight" 
+                 Canvas.Left="{Binding X2, ElementName=KneeRight_AngleRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=KneeRight_AngleRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Ellipse x:Name ="FootRight" 
+                 Canvas.Left="{Binding X2, ElementName=AngleRight_FootRight, Mode=TwoWay}" 
+                 Canvas.Top="{Binding Y2, ElementName=AngleRight_FootRight, Mode=TwoWay}" 
+                 Fill="#FFF4F4F5" Height="8"  Stroke="Black" Width="8" d:IsLocked="True" />
+            <Button Content="Store" Canvas.Left="30" Canvas.Top="578" Width="75" Click="Button_Click" />
+            <Button Content="Compare" Canvas.Left="124" Canvas.Top="578" Width="75" Click="Button_Click_1" />
+            <TextBox  Name="num1" Height="30" Canvas.Left="30" TextWrapping="Wrap" Text="0000000000000000000000000000000000000000" Canvas.Top="543" Width="417" />
+            <TextBox  Name="num2" Height="27" Canvas.Left="30" TextWrapping="Wrap" Text="0000000000000000000000000000000000000000" Canvas.Top="511" Width="417"/>
+            <TextBlock  Name="num3" Height="15" Canvas.Left="247" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="578" Width="105"/>
+        </Canvas>
+        
+    </Grid>
+</Window>
